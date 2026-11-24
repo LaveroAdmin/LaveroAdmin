@@ -1,0 +1,269 @@
+.dd {
+    position: relative;
+    display: block;
+    margin: 10px;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.dd-list {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.dd-list .dd-list {
+    padding-left: 30px;
+}
+.dd-collapsed > .dd-list {
+    display: none !important;
+}
+
+.dd-item,
+.dd-empty,
+.dd-placeholder {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.dd-handle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 6px 0;
+    padding: 8px 12px;
+    color: #1e293b;
+    text-decoration: none;
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    border-radius: 6px;
+    cursor: move;
+    min-height: 44px;
+    box-sizing: border-box;
+    transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.dd-handle:hover {
+    color: #0f172a;
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.dd-handle .dd-content {
+    flex: 1 1 auto;
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+}
+
+.dd-handle .dd-content a {
+    color: #2563eb;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.dd-handle .dd-content a:hover {
+    text-decoration: underline;
+}
+
+.dd-handle .dd-actions,
+.dd-handle .pull-right {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    margin-left: auto;
+    float: none !important;
+}
+
+.dd-handle .dd-actions a,
+.dd-handle .pull-right a,
+.dd-action-btn {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    color: #64748b;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.dd-handle .dd-actions a:hover,
+.dd-handle .pull-right a:hover,
+.dd-action-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+    border-color: #cbd5e1;
+}
+
+.dd-handle .dd-actions a.tree_branch_delete:hover,
+.dd-handle .pull-right a.tree_branch_delete:hover,
+.dd-action-btn.tree_branch_delete:hover {
+    background: #fee2e2;
+    color: #ef4444;
+    border-color: #fca5a5;
+}
+
+.dd-handle i {
+    margin-right: 0.35em;
+}
+
+.dd-handle .dd-actions i,
+.dd-handle .pull-right i,
+.dd-action-btn i {
+    margin-right: 0 !important;
+}
+
+.dd-item > button {
+    display: none;
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    padding: 0;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 0;
+    background: transparent;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    font-weight: bold;
+    color: #64748b;
+    z-index: 2;
+    border-radius: 3px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+.dd-item.has-children > button[data-action="collapse"] {
+    display: block;
+}
+.dd-item.has-children.dd-collapsed > button[data-action="collapse"] {
+    display: none;
+}
+.dd-item.has-children.dd-collapsed > button[data-action="expand"] {
+    display: block;
+}
+.dd-item > button:hover {
+    color: #0f172a;
+    background: rgba(0, 0, 0, 0.06);
+}
+.dd-item > button:before {
+    content: "+";
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-indent: 0;
+}
+.dd-item > button[data-action="collapse"]:before {
+    content: "-";
+}
+
+.dd-item.has-children > .dd-handle {
+    padding-left: 36px;
+}
+
+.dd-placeholder {
+    margin: 4px 0;
+    padding: 0;
+    min-height: 36px;
+    background: rgba(250, 255, 105, 0.18);
+    border: 2px dashed #94a3b8;
+    border-radius: 4px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+/* Empty list styling */
+.dd-list:empty {
+    display: none;
+}
+
+/* When dragging is active, empty lists show an indentation drop target */
+.dd-dragging .dd-item > .dd-list:empty {
+    display: block !important;
+    min-height: 32px;
+    margin: 3px 0 6px 30px;
+    border: 2px dashed #94a3b8;
+    border-radius: 4px;
+    background: rgba(250, 255, 105, 0.12);
+    position: relative;
+    box-sizing: border-box;
+}
+.dd-dragging .dd-item > .dd-list:empty:hover {
+    background: rgba(250, 255, 105, 0.28);
+    border-color: #64748b;
+}
+
+.dd-dragel {
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999;
+}
+.dd-dragel > .dd-item .dd-handle {
+    margin-top: 0;
+}
+.dd-dragel .dd-handle {
+    -webkit-box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.1);
+}
+.dd-handle .pull-right {
+    float: none !important;
+}
+
+/* Dark mode support */
+[data-bs-theme="dark"] .dd-handle {
+    background: #111724;
+    border-color: #1e293b;
+    color: #f1f5f9;
+}
+[data-bs-theme="dark"] .dd-handle:hover {
+    background: #1e293b;
+    border-color: #334155;
+    color: #ffffff;
+}
+[data-bs-theme="dark"] .dd-handle .dd-actions a,
+[data-bs-theme="dark"] .dd-handle .pull-right a,
+[data-bs-theme="dark"] .dd-action-btn {
+    background: #1e293b;
+    border-color: #334155;
+    color: #cbd5e1;
+}
+[data-bs-theme="dark"] .dd-handle .dd-actions a:hover,
+[data-bs-theme="dark"] .dd-handle .pull-right a:hover,
+[data-bs-theme="dark"] .dd-action-btn:hover {
+    background: #334155;
+    border-color: #475569;
+    color: #ffffff;
+}
+[data-bs-theme="dark"] .dd-handle .dd-actions a.tree_branch_delete:hover,
+[data-bs-theme="dark"] .dd-handle .pull-right a.tree_branch_delete:hover,
+[data-bs-theme="dark"] .dd-action-btn.tree_branch_delete:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.4);
+    color: #f87171;
+}
+[data-bs-theme="dark"] .dd-item > button {
+    color: #94a3b8;
+}
+[data-bs-theme="dark"] .dd-item > button:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}

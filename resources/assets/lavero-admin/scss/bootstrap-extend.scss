@@ -1,0 +1,79 @@
+.callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+
+    h4 {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    code {
+        border-radius: 3px;
+    }
+
+    & + .bs-callout {
+        margin-top: -5px;
+    }
+}
+@each $name,$color in $theme-colors{
+    .callout-#{$name} {
+        border-left-color: $color;
+
+        h4 {
+            color: $color;
+        }
+    }
+}
+
+.text-dotted{
+    text-decoration-style:dotted;
+}
+
+/* SweetAlert2 Dialog Styling */
+.swal2-popup {
+    border-radius: 12px !important;
+    font-family: inherit !important;
+    padding: 1.75rem !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+
+    .swal2-title {
+        font-size: 1.25rem !important;
+        font-weight: 600 !important;
+        color: #1e293b !important;
+    }
+
+    .swal2-html-container,
+    .swal2-content {
+        font-size: 0.95rem !important;
+        color: #64748b !important;
+        margin-top: 0.5rem !important;
+    }
+
+    .swal2-actions {
+        margin-top: 1.5rem !important;
+        gap: 0.5rem;
+    }
+
+    .swal2-styled.swal2-confirm {
+        border-radius: 6px !important;
+        font-weight: 600 !important;
+        font-size: 0.875rem !important;
+        padding: 8px 22px !important;
+        box-shadow: none !important;
+    }
+
+    .swal2-styled.swal2-cancel {
+        border-radius: 6px !important;
+        font-weight: 500 !important;
+        font-size: 0.875rem !important;
+        padding: 8px 22px !important;
+        box-shadow: none !important;
+    }
+}
