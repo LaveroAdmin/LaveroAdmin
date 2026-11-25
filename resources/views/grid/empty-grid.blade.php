@@ -11,7 +11,7 @@
             <h5 class="empty-state-title fw-semibold text-dark mb-1" style="font-size: 0.98rem;">{{ admin_trans('admin.empty_grid') }}</h5>
             <p class="empty-state-description small text-secondary mb-3" style="max-width: 420px;">{{ admin_trans('admin.empty_grid_description') }}</p>
             @if(request()->has('_search_') || count(request()->except(['_pjax', '_pjax_'])))
-                <a href="{{ $grid->getFilter()->urlWithoutFilters() }}" class="btn btn-sm btn-outline-secondary">
+                <a href="{{ request()->url() }}" class="btn btn-sm btn-outline-secondary">
                     <i class="icon-refresh"></i> {{ admin_trans('admin.reset') }}
                 </a>
             @endif

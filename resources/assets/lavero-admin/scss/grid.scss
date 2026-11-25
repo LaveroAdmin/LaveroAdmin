@@ -84,8 +84,37 @@
     }
 }
 
-.grid-table thead th {
-    background: var(--card-bg, #ffffff);
+.grid-table {
+    font-size: 0.875rem;
+    margin-bottom: 0;
+
+    thead th {
+        background-color: #f8fafc !important;
+        color: #64748b;
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        border-bottom: 1px solid #e2e8f0;
+        padding: 0.75rem 0.65rem;
+        white-space: nowrap;
+    }
+
+    tbody td {
+        padding: 0.7rem 0.65rem;
+        vertical-align: middle;
+        border-bottom-color: #f1f5f9;
+    }
+
+    tbody tr:hover > td {
+        background-color: #f8fafc;
+    }
+
+    td img {
+        border-radius: 6px;
+        object-fit: cover;
+        border: 1px solid #e2e8f0;
+    }
 }
 
 .btn-filter {
@@ -312,34 +341,96 @@ body .table.allow-wrap tr td {
     }
 
 
-    .column-__actions__ {
+.grid-table th.column-__actions__,
+.grid-table td.column-__actions__,
+.table-responsive th.column-__actions__,
+.table-responsive td.column-__actions__ {
+    position: sticky;
+    right: 0;
+    width: 1% !important;
+    min-width: 0 !important;
+    background-color: #ffffff !important;
+    border-left: 1px solid #f1f5f9;
+    z-index: 2;
+    box-shadow: -8px 0 14px -8px rgba(15, 23, 42, 0.1);
+    white-space: nowrap;
+    text-align: center !important;
+    padding: 0.55rem 0.75rem !important;
+}
+
+.grid-table thead th.column-__actions__,
+.table-responsive thead th.column-__actions__ {
+    background-color: #f8fafc !important;
+    z-index: 3;
+}
+
+.grid-table tbody tr:hover td.column-__actions__ {
+    background-color: #f8fafc !important;
+}
+
+.grid-table tbody tr.selected td.column-__actions__,
+.grid-table tbody tr.table-active td.column-__actions__ {
+    background-color: var(--bs-table-selected-bg, #f0fdf4) !important;
+}
+
+.grid-table td.column-__actions__ .__actions__div,
+.table-responsive td.column-__actions__ .__actions__div {
+    position: static !important;
+    height: auto !important;
+    margin-top: 0 !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    a {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        margin: 0 !important;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+        background-color: #f8fafc;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #475569;
+        font-size: 0.82rem;
+        text-decoration: none;
+        transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+
+        &:hover {
+            background-color: #e2e8f0;
+            border-color: #cbd5e1;
+            color: #0f172a;
+            transform: translateY(-1px);
+        }
+
+        &[href*="/edit"]:hover {
+            background-color: var(--primary-color, #bef264);
+            border-color: #84cc16;
+            color: #0f172a;
+        }
+
+        &.grid-row-delete:hover {
+            background-color: #fee2e2;
+            border-color: #fecaca;
+            color: #dc2626;
+        }
+    }
+
+    &.with-labels a,
+    a.wider {
         width: auto;
-        white-space: nowrap;
+        padding: 0 10px;
+        gap: 6px;
     }
-
-    .__actions__div {
-        margin-top: -1.98rem;
-        height: 3.9rem;
-        line-height: 3.2rem;
-        padding-right: 0.75rem;
-        position: absolute;
-        right: 0px;
-        background: rgb(255, 255, 255);
-        background: linear-gradient(
-                        90deg,
-                        rgba(255, 255, 255, 0) 0%,
-                        rgba(255, 255, 255, 1) 30%
-        );
-        padding-left: 2rem;
-    }
-
-    th.column-__actions__ {
-
-        min-width: 160px;
-        min-width: 11rem;
-        text-align: right;
-        padding-right: 5.2rem;
-    }
+}
 }
 
 /*---------------------------------------------------------*/

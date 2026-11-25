@@ -1,8 +1,19 @@
 @php $hasChildren = !empty($branch['children']); @endphp
 <li class="dd-item {{ $hasChildren ? 'has-children' : '' }}" data-id="{{ $branch[$keyName] }}">
-    <button type="button" data-action="collapse">{{ trans('admin.collapse') }}</button>
-    <button type="button" data-action="expand">{{ trans('admin.expand') }}</button>
     <div class="dd-handle">
+        <span class="dd-grip" aria-hidden="true">
+            <svg width="12" height="16" viewBox="0 0 12 16" fill="currentColor">
+                <circle cx="3.5" cy="3" r="1.25"/><circle cx="8.5" cy="3" r="1.25"/>
+                <circle cx="3.5" cy="8" r="1.25"/><circle cx="8.5" cy="8" r="1.25"/>
+                <circle cx="3.5" cy="13" r="1.25"/><circle cx="8.5" cy="13" r="1.25"/>
+            </svg>
+        </span>
+        <button type="button" class="dd-toggle dd-nodrag" data-action="collapse" title="{{ trans('admin.collapse') }}" aria-label="{{ trans('admin.collapse') }}">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <button type="button" class="dd-toggle dd-nodrag" data-action="expand" title="{{ trans('admin.expand') }}" aria-label="{{ trans('admin.expand') }}">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
         <div class="dd-content">
             {!! $branchCallback($branch) !!}
         </div>

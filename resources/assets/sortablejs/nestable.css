@@ -1,10 +1,10 @@
 .dd {
     position: relative;
     display: block;
-    margin: 10px;
+    margin: 4px 0;
     padding: 0;
     list-style: none;
-    font-size: 13px;
+    font-size: 13.5px;
     line-height: 20px;
 }
 
@@ -16,7 +16,9 @@
     list-style: none;
 }
 .dd-list .dd-list {
-    padding-left: 30px;
+    padding-left: 24px;
+    margin-left: 14px;
+    border-left: 1px dashed #cbd5e1;
 }
 .dd-collapsed > .dd-list {
     display: none !important;
@@ -35,15 +37,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    gap: 10px;
     margin: 6px 0;
     padding: 8px 12px;
     color: #1e293b;
     text-decoration: none;
     border: 1px solid #e2e8f0;
     background: #fff;
-    border-radius: 6px;
-    cursor: move;
+    border-radius: 8px;
+    cursor: grab;
     min-height: 44px;
     box-sizing: border-box;
     transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
@@ -52,7 +54,22 @@
     color: #0f172a;
     background: #f8fafc;
     border-color: #cbd5e1;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+}
+.dd-dragging .dd-handle {
+    cursor: grabbing;
+}
+
+.dd-handle .dd-grip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #cbd5e1;
+    transition: color 0.15s ease;
+}
+.dd-handle:hover .dd-grip {
+    color: #94a3b8;
 }
 
 .dd-handle .dd-content {
@@ -60,16 +77,19 @@
     min-width: 0;
     word-break: break-word;
     overflow-wrap: anywhere;
-    line-height: 1.5;
+    line-height: 1.45;
 }
 
 .dd-handle .dd-content a {
-    color: #2563eb;
+    color: #64748b;
+    font-size: 0.85em;
     text-decoration: none;
     word-break: break-all;
+    transition: color 0.15s ease;
 }
 
 .dd-handle .dd-content a:hover {
+    color: #2563eb;
     text-decoration: underline;
 }
 
@@ -127,30 +147,62 @@
     margin-right: 0 !important;
 }
 
+/* Collapse / expand toggle inside .dd-handle */
+.dd-handle > .dd-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background: #f8fafc;
+    color: #475569;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.dd-handle > .dd-toggle:hover {
+    background: #e2e8f0;
+    border-color: #cbd5e1;
+    color: #0f172a;
+}
+.dd-item.has-children > .dd-handle > .dd-toggle[data-action="collapse"] {
+    display: inline-flex;
+}
+.dd-item.has-children.dd-collapsed > .dd-handle > .dd-toggle[data-action="collapse"] {
+    display: none;
+}
+.dd-item.has-children.dd-collapsed > .dd-handle > .dd-toggle[data-action="expand"] {
+    display: inline-flex;
+}
+
+/* Fallback for legacy .dd-item > button markup: anchor to parent row, not full .dd-item height */
 .dd-item > button {
     display: none;
     position: absolute;
-    left: 6px;
-    top: 50%;
-    transform: translateY(-50%);
+    left: 10px;
+    top: 9px;
     cursor: pointer;
-    width: 22px;
-    height: 22px;
+    width: 26px;
+    height: 26px;
     margin: 0;
     padding: 0;
     text-indent: 100%;
     white-space: nowrap;
     overflow: hidden;
-    border: 0;
-    background: transparent;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
     font-size: 14px;
-    line-height: 22px;
+    line-height: 24px;
     text-align: center;
     font-weight: bold;
-    color: #64748b;
+    color: #475569;
     z-index: 2;
-    border-radius: 3px;
-    transition: background-color 0.15s ease, color 0.15s ease;
+    border-radius: 6px;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 .dd-item.has-children > button[data-action="collapse"] {
     display: block;
@@ -163,7 +215,8 @@
 }
 .dd-item > button:hover {
     color: #0f172a;
-    background: rgba(0, 0, 0, 0.06);
+    background: #e2e8f0;
+    border-color: #cbd5e1;
 }
 .dd-item > button:before {
     content: "+";
@@ -176,17 +229,17 @@
     content: "-";
 }
 
-.dd-item.has-children > .dd-handle {
-    padding-left: 36px;
+.dd-item.has-children > button ~ .dd-handle {
+    padding-left: 42px;
 }
 
 .dd-placeholder {
-    margin: 4px 0;
+    margin: 6px 0;
     padding: 0;
-    min-height: 36px;
-    background: rgba(250, 255, 105, 0.18);
-    border: 2px dashed #94a3b8;
-    border-radius: 4px;
+    min-height: 44px;
+    background: rgba(190, 242, 100, 0.18);
+    border: 2px dashed #84cc16;
+    border-radius: 8px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
@@ -199,17 +252,17 @@
 /* When dragging is active, empty lists show an indentation drop target */
 .dd-dragging .dd-item > .dd-list:empty {
     display: block !important;
-    min-height: 32px;
-    margin: 3px 0 6px 30px;
+    min-height: 36px;
+    margin: 4px 0 6px 24px;
     border: 2px dashed #94a3b8;
-    border-radius: 4px;
-    background: rgba(250, 255, 105, 0.12);
+    border-radius: 8px;
+    background: rgba(190, 242, 100, 0.12);
     position: relative;
     box-sizing: border-box;
 }
 .dd-dragging .dd-item > .dd-list:empty:hover {
-    background: rgba(250, 255, 105, 0.28);
-    border-color: #64748b;
+    background: rgba(190, 242, 100, 0.28);
+    border-color: #84cc16;
 }
 
 .dd-dragel {
@@ -229,6 +282,9 @@
 }
 
 /* Dark mode support */
+[data-bs-theme="dark"] .dd-list .dd-list {
+    border-left-color: #334155;
+}
 [data-bs-theme="dark"] .dd-handle {
     background: #111724;
     border-color: #1e293b;
@@ -237,6 +293,30 @@
 [data-bs-theme="dark"] .dd-handle:hover {
     background: #1e293b;
     border-color: #334155;
+    color: #ffffff;
+}
+[data-bs-theme="dark"] .dd-handle .dd-grip {
+    color: #475569;
+}
+[data-bs-theme="dark"] .dd-handle:hover .dd-grip {
+    color: #94a3b8;
+}
+[data-bs-theme="dark"] .dd-handle .dd-content a {
+    color: #94a3b8;
+}
+[data-bs-theme="dark"] .dd-handle .dd-content a:hover {
+    color: #60a5fa;
+}
+[data-bs-theme="dark"] .dd-handle > .dd-toggle,
+[data-bs-theme="dark"] .dd-item > button {
+    background: #1e293b;
+    border-color: #334155;
+    color: #cbd5e1;
+}
+[data-bs-theme="dark"] .dd-handle > .dd-toggle:hover,
+[data-bs-theme="dark"] .dd-item > button:hover {
+    background: #334155;
+    border-color: #475569;
     color: #ffffff;
 }
 [data-bs-theme="dark"] .dd-handle .dd-actions a,
