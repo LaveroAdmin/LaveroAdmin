@@ -48,6 +48,14 @@ LaveroAdmin supports official extensions:
 - [laveroadmin/ckeditor](https://github.com/LaveroAdmin/ckeditor) - Rich text CKEditor 5 integration
 - [laveroadmin/grid-sortable](https://github.com/LaveroAdmin/grid-sortable) - Drag & drop sortable grid rows
 - [laveroadmin/wafu](https://github.com/LaveroAdmin/wafu) - Web application firewall & IP access rules manager
+- [laveroadmin/seo](https://github.com/LaveroAdmin/seo) - 301/302/410 redirects manager, `robots.txt` editor & global SEO meta tags
+- [laveroadmin/menus](https://github.com/LaveroAdmin/menus) - Public site navigation menus builder with drag-and-drop hierarchy
+- [laveroadmin/notifications](https://github.com/LaveroAdmin/notifications) - Multi-channel alerts (Telegram, Webhook, Email) for admin & system events
+- [laveroadmin/cache-manager](https://github.com/LaveroAdmin/cache-manager) - Laravel cache, OPcache & `storage:link` manager without SSH
+- [laveroadmin/forms](https://github.com/LaveroAdmin/forms) - Public contact/lead forms builder & submissions inbox
+- [laveroadmin/mail-log](https://github.com/LaveroAdmin/mail-log) - Outgoing Laravel emails logger & previewer with token redaction
+- [laveroadmin/sessions](https://github.com/LaveroAdmin/sessions) - Active admin sessions manager, remote revocation & login audit
+- [laveroadmin/tiptap](https://github.com/LaveroAdmin/tiptap) - Modern TipTap WYSIWYG editor field for Model-Form
 
 ## License
 
