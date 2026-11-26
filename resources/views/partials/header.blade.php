@@ -24,6 +24,18 @@
             {!! Admin::getNavbar()->render() !!}
 
             <li class="nav-item">
+                <a href="javascript:void(0);" class="nav-link px-2 px-md-3 text-secondary" onclick="if (window.admin && admin.ajax) { admin.ajax.reload(); } else { window.location.reload(); }" title="{{ trans('admin.refresh') }}" aria-label="{{ trans('admin.refresh') }}">
+                    <i class="icon-sync-alt"></i>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ url('/') }}" target="_blank" rel="noopener" class="nav-link px-2 px-md-3 text-secondary" title="{{ config('app.name', 'Site') }}" aria-label="{{ config('app.name', 'Site') }}">
+                    <i class="icon-external-link-alt"></i>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <div class="dropdown user-menu d-flex align-items-center px-3" href="#" role="button" id="user-menu-link" data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="bg-light inline rounded-circle user-image">
                         <img src="{{ Admin::user()->avatar }}" alt="User Image">
