@@ -137,8 +137,10 @@ abstract class RowAction extends GridAction
         $linkClass = ($this->parent->getActionClass() != "LaveroAdmin\Admin\Grid\Displayers\Actions\Actions") ? 'dropdown-item' : '';
         $icon = $this->getIcon();
 
+        $title = htmlspecialchars((string) $this->name(), ENT_QUOTES, 'UTF-8');
+
         if ($href = $this->href()) {
-            return "<a href='{$href}' class='{$linkClass}'>{$icon}<span class='label'>{$this->name()}</span></a>";
+            return "<a href='{$href}' class='{$linkClass}' title='{$title}'>{$icon}<span class='label'>{$this->name()}</span></a>";
         }
 
         $this->addScript();
@@ -146,8 +148,9 @@ abstract class RowAction extends GridAction
         $attributes = $this->formatAttributes();
 
         return sprintf(
-            "<a data-_key='%s' href='javascript:void(0);' class='%s {$linkClass}' {$attributes}>{$icon}<span class='label'>%s</span></a>",
+            "<a data-_key='%s' href='javascript:void(0);' title='%s' class='%s {$linkClass}' {$attributes}>{$icon}<span class='label'>%s</span></a>",
             $this->getKey(),
+            $title,
             $this->getElementClass(),
             $this->asColumn ? $this->display($this->row($this->column->getName())) : $this->name()
         );
