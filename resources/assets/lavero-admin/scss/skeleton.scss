@@ -1068,9 +1068,21 @@ main#main footer.fixed-bottom {
 /* main styles  */
 /*-----------------------------------------------------*/
 
-#nprogress {
-    .bar,
+#nprogress,
+.nprogress-custom-parent #nprogress {
+    .bar {
+        position: fixed !important;
+        top: 56px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        z-index: 2070 !important;
+    }
+
     .spinner {
+        position: fixed !important;
+        top: 68px !important;
+        right: 16px !important;
         z-index: 2070 !important;
     }
 }
