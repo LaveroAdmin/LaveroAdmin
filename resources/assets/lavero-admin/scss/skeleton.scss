@@ -15,6 +15,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: stretch;
+    border-bottom: 2px solid var(--primary-color);
 
     .nav {
         .nav-link {
@@ -52,14 +53,14 @@
         flex-wrap: nowrap;
         align-items: stretch;
 
-        > a:hover,
-        > ul > li:hover {
+        >a:hover,
+        >ul>li:hover {
             background: $extra-light;
         }
     }
 
-    .valign-header > *,
-    .header-items > .nav {
+    .valign-header>*,
+    .header-items>.nav {
         line-height: 56px;
     }
 
@@ -98,7 +99,8 @@
             font-size: 1.15rem;
             letter-spacing: -0.02em;
 
-            b, strong {
+            b,
+            strong {
                 color: var(--primary-color);
             }
         }
@@ -163,7 +165,8 @@
                 font-size: 1.15rem !important;
             }
 
-            &:active, &:hover {
+            &:active,
+            &:hover {
                 background: #f1f5f9 !important;
                 color: #0f172a !important;
                 border-color: #cbd5e1 !important;
@@ -186,7 +189,8 @@
                 overflow: hidden !important;
                 text-overflow: ellipsis !important;
 
-                b, strong {
+                b,
+                strong {
                     color: #16a34a !important;
                 }
             }
@@ -355,7 +359,7 @@ aside#sidebar {
     z-index: 1020;
     transition: width 0.3s, transform 0.3s;
 
-    > nav {
+    >nav {
         flex: 1 1 auto;
         min-height: 0;
         overflow-y: auto;
@@ -406,7 +410,7 @@ aside#sidebar {
 .side-menu-closed aside#sidebar {
     overflow: visible;
 
-    > nav {
+    >nav {
         overflow: visible;
     }
 
@@ -526,14 +530,14 @@ main#main footer.fixed-bottom {
         }
     }
 
-    > ul > li {
+    >ul>li {
         border-left: none;
         background: transparent;
 
         &.active {
             background-color: transparent;
 
-            > a {
+            >a {
                 color: #bef264 !important;
                 background-color: rgba(190, 242, 100, 0.12);
                 font-weight: 600;
@@ -572,7 +576,7 @@ main#main footer.fixed-bottom {
                 }
             }
 
-            &.active > a {
+            &.active>a {
                 color: var(--primary-color) !important;
                 background-color: rgba(190, 242, 100, 0.12);
                 font-weight: 600;
@@ -613,13 +617,13 @@ main#main footer.fixed-bottom {
             transition: width 0.3s;
         }
 
-        .custom-menu > ul > li {
+        .custom-menu>ul>li {
             position: relative;
             width: 54px;
             padding: 0;
             margin: 0;
 
-            > a {
+            >a {
                 width: 54px;
                 height: 42px;
                 display: flex;
@@ -642,10 +646,10 @@ main#main footer.fixed-bottom {
 
             // Simple items (without children) tooltip on hover
             &:not(.treeview):hover {
-                > a {
+                >a {
                     position: static;
 
-                    > span {
+                    >span {
                         display: inline-block !important;
                         position: absolute;
                         top: 50%;
@@ -670,10 +674,10 @@ main#main footer.fixed-bottom {
 
             // Treeview items (with children) on hover
             &.treeview:hover {
-                > a {
+                >a {
                     position: static;
 
-                    > span {
+                    >span {
                         display: block !important;
                         position: absolute;
                         top: 0;
@@ -697,7 +701,7 @@ main#main footer.fixed-bottom {
                     }
                 }
 
-                > ul {
+                >ul {
                     display: block !important;
                     position: absolute;
                     top: 42px;
@@ -714,7 +718,7 @@ main#main footer.fixed-bottom {
                     list-style: none;
                     border-left: none !important;
 
-                    > li {
+                    >li {
                         position: relative;
                         padding: 0 !important;
                         margin: 0 !important;
@@ -722,7 +726,7 @@ main#main footer.fixed-bottom {
                         border-left: none !important;
                         background: transparent !important;
 
-                        > a {
+                        >a {
                             display: flex;
                             align-items: center;
                             width: 100%;
@@ -767,7 +771,7 @@ main#main footer.fixed-bottom {
                             }
                         }
 
-                        &.treeview.active > a {
+                        &.treeview.active>a {
                             color: #ffffff !important;
                             font-weight: 600;
 
@@ -776,7 +780,7 @@ main#main footer.fixed-bottom {
                             }
                         }
 
-                        &:not(.treeview).active > a {
+                        &:not(.treeview).active>a {
                             color: var(--primary-color) !important;
                             font-weight: 600;
 
@@ -786,7 +790,7 @@ main#main footer.fixed-bottom {
                         }
 
                         // Arrow for nested sub-treeviews inside flyout
-                        &.treeview > a {
+                        &.treeview>a {
                             position: relative;
                             padding-right: 28px;
 
@@ -809,7 +813,7 @@ main#main footer.fixed-bottom {
                         }
 
                         // Sub-submenu is HIDDEN by default
-                        > ul {
+                        >ul {
                             display: none !important;
                             position: absolute;
                             top: 0;
@@ -826,7 +830,7 @@ main#main footer.fixed-bottom {
                             border-left: none !important;
                             list-style: none;
 
-                            > li {
+                            >li {
                                 position: relative;
                                 padding: 0 !important;
                                 margin: 0 !important;
@@ -834,7 +838,7 @@ main#main footer.fixed-bottom {
                                 border-left: none !important;
                                 background: transparent !important;
 
-                                > a {
+                                >a {
                                     display: flex;
                                     align-items: center;
                                     width: 100%;
@@ -875,7 +879,7 @@ main#main footer.fixed-bottom {
                                     }
                                 }
 
-                                &.active > a {
+                                &.active>a {
                                     color: var(--primary-color) !important;
                                     font-weight: 600;
 
@@ -887,7 +891,7 @@ main#main footer.fixed-bottom {
                         }
 
                         // Open nested flyout to the right on hover
-                        &.treeview:hover > ul {
+                        &.treeview:hover>ul {
                             display: block !important;
                         }
                     }
@@ -1035,7 +1039,7 @@ main#main footer.fixed-bottom {
         margin-top: 30px;
     }
 
-    .dropdown-menu > li > a {
+    .dropdown-menu>li>a {
         display: block;
         padding: 8px 12px;
         color: var(--menu-text);
@@ -1107,6 +1111,7 @@ main#main footer .pagination {
 /*-----------------------------------------------------*/
 
 .hide-nav {
+
     header.custom-navbar,
     #sidebar,
     .breadcrumb,
