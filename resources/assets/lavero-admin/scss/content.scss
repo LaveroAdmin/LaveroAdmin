@@ -251,17 +251,76 @@
 }
 
 /*---------------------------------------------------------*/
-/* user menu */
+/* header actions & user menu */
 /*---------------------------------------------------------*/
 
-.user-menu {
-    border-radius: 0;
+.header-action-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    color: #475569;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    line-height: 1;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.12s ease;
+
+    &:hover,
+    &:focus {
+        background: var(--primary-color, #bef264);
+        border-color: var(--primary-hover, #a3e635);
+        color: var(--primary-text, #0f172a);
+        transform: translateY(-1px);
+    }
+}
+
+.user-menu-trigger {
+    height: 38px;
+    padding: 3px 12px 3px 4px;
+    border-radius: 999px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    gap: 8px;
+    cursor: pointer;
+    line-height: 1;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+
+    &:hover,
+    &[aria-expanded="true"] {
+        background: #f1f5f9;
+        border-color: #cbd5e1;
+    }
+
+    .user-image {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        margin-right: 0 !important;
+        border: 2px solid var(--primary-color, #bef264);
+    }
+}
+
+ul.dropdown-menu.user-menu {
+    border-radius: 14px;
     padding: 0;
+    min-width: 265px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.16);
+    overflow: hidden;
+    margin-top: 8px !important;
 }
 
 .user-menu .user-header {
-    background: var(--menu-bg);
-    color: var(--menu-text);
+    background: var(--menu-bg, #0f172a);
+    color: var(--menu-text, #94a3b8);
+    border-bottom: 3px solid var(--primary-color, #bef264);
+
+    .user-image.medium {
+        border: 2px solid var(--primary-color, #bef264);
+    }
 }
 
 /*---------------------------------------------------------*/
