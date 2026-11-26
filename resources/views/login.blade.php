@@ -23,10 +23,10 @@
 				align-items: center;
 				justify-content: center;
 				padding: 1.5rem 1rem;
-				background-color: #f8fafc;
+				background-color: #020617;
 				background-image:
-					radial-gradient(circle at 15% 15%, rgba(190, 242, 100, 0.22) 0%, transparent 40%),
-					radial-gradient(circle at 85% 85%, rgba(15, 23, 42, 0.06) 0%, transparent 45%);
+					radial-gradient(circle at 18% 18%, rgba(190, 242, 100, 0.12) 0%, transparent 45%),
+					radial-gradient(circle at 82% 82%, rgba(30, 41, 59, 0.75) 0%, transparent 50%);
 			}
 			.lavero-login-page.has-bg-image {
 				background-position: center;
@@ -38,7 +38,7 @@
 				content: '';
 				position: fixed;
 				inset: 0;
-				background: rgba(15, 23, 42, 0.45);
+				background: rgba(2, 6, 23, 0.65);
 				backdrop-filter: blur(4px);
 			}
 			.lavero-login-container {
@@ -49,10 +49,10 @@
 			}
 			.lavero-login-card {
 				background: #ffffff;
-				border: 1px solid #e2e8f0;
+				border: 1px solid rgba(255, 255, 255, 0.08);
 				border-radius: 16px;
 				overflow: hidden;
-				box-shadow: 0 20px 45px -15px rgba(15, 23, 42, 0.14);
+				box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55);
 			}
 			.lavero-login-header {
 				background: #0f172a;
