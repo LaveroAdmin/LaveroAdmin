@@ -1,92 +1,181 @@
-.file-upload-preview-div{
-    padding:16px 0 0 16px;
-    margin-bottom: 10px;
-    float:left;
-    width:100%;
+.file-upload-preview-div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 14px;
+    margin-bottom: 12px;
+    width: 100%;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
 }
 
-.file-upload-preview-div .files{
-    display: inline;
+.file-upload-preview-div .files {
+    display: contents;
 }
 
-
-body .file-upload-preview-div .card{
-    display:inline-block;
-    border:1px solid var(--field-border-color);
-    width:180px;
-    margin: 0 16px 16px 0;
+body .file-upload-preview-div .card {
+    display: flex;
+    flex-direction: column;
+    width: 176px;
+    margin: 0;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-.file-upload-preview-div .files.new .card{
-    background:#FFFBD7;
+body .file-upload-preview-div .card:hover {
+    transform: translateY(-2px);
+    border-color: #cbd5e1;
+    box-shadow: 0 10px 22px -8px rgba(15, 23, 42, 0.14);
 }
 
-.file-upload-preview-div .card-image{
-    width:160px;
-    height:128px;
+.file-upload-preview-div .files.new .card {
+    background: #f7fee7;
+    border-color: #a3e635;
+}
+
+.file-upload-preview-div .card-image {
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin:10px;
+    margin: 0;
+    padding: 10px 10px 6px;
+    background: #f8fafc;
+    border-bottom: 1px solid #f1f5f9;
 }
 
-.file-upload-preview-div .card-body{
-    padding-top:0rem;
-}
-
-.file-upload-preview-div .card-image img{
-    max-width:140px;
-    max-height:100px;
-    border:1px solid var(--field-border-color);
+.file-upload-preview-div .card-image img {
+    width: 100%;
+    height: 112px;
+    max-width: 100%;
+    max-height: 112px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
     cursor: zoom-in;
     background-position: 0px 0px, 10px 10px;
-    background-size: 20px 20px;
-    background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%),linear-gradient(45deg, #eee 25%, white 25%, white 75%, #eee 75%, #eee 100%);
+    background-size: 16px 16px;
+    background-image:
+        linear-gradient(45deg, #f1f5f9 25%, transparent 25%, transparent 75%, #f1f5f9 75%, #f1f5f9 100%),
+        linear-gradient(45deg, #f1f5f9 25%, #ffffff 25%, #ffffff 75%, #f1f5f9 75%, #f1f5f9 100%);
 }
 
-.file-upload-preview-div .card-image span.icon{
-    width:60px;
-    height:60px;
-    border:1px solid var(--field-border-color);
-    font-size:3rem;
+.file-upload-preview-div .card-image span.icon {
+    width: 68px;
+    height: 68px;
+    margin: 22px 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 2.1rem;
+    color: #475569;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #FFF;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
 }
 
-.file-upload-preview-div .card-image span.label{
-    display:block;
+.file-upload-preview-div .card-image span.label {
+    display: block;
     clear: both;
-    padding-top:0.5rem;
-    font-size:0.8rem;
-    width:100%;
-    height:2rem;
-    line-height:1rem;
+    padding: 8px 4px 2px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #334155;
+    width: 100%;
+    height: auto;
+    line-height: 1.25;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     text-align: center;
-    align-self: flex-end;
 }
 
-body .file-upload-preview-div .in-active{
-    opacity: 0.5;
-    cursor:default;
+.file-upload-preview-div .card-body {
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    background: #ffffff;
 }
 
-body .file-upload-preview-div .handle{
-    cursor: move;
+.file-upload-preview-div .card-body .btn {
+    flex: 1 1 0;
+    height: 32px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    color: #475569;
+    font-size: 0.85rem;
+    transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+
+.file-upload-preview-div .card-body .btn.icon-trash:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    color: #dc2626;
+}
+
+.file-upload-preview-div .card-body .btn.icon-download:hover {
+    background: #bef264;
+    border-color: #a3e635;
+    color: #0f172a;
+}
+
+.file-upload-preview-div .card-body .btn.handle:hover {
+    background: #e2e8f0;
+    border-color: #cbd5e1;
+    color: #0f172a;
+}
+
+body .file-upload-preview-div .in-active {
+    opacity: 0.45;
+    cursor: default;
+}
+
+body .file-upload-preview-div .handle {
+    cursor: grab;
+}
+
+body .file-upload-preview-div .handle:active {
+    cursor: grabbing;
 }
 
 .input-group.dragover .form-control {
-    border-color: var(--primary-color, #faff69) !important;
-    background-color: rgba(250, 255, 105, 0.06) !important;
+    border-color: #84cc16 !important;
+    background-color: rgba(190, 242, 100, 0.12) !important;
+}
+
+.lavero-dropzone-droparea {
+    border-radius: 12px;
+    transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
 }
 
 .lavero-dropzone-droparea.dragover {
     transform: scale(1.01);
+    border-color: #84cc16 !important;
+    background-color: rgba(190, 242, 100, 0.12) !important;
 }
 
+@media (max-width: 575.98px) {
+    .file-upload-preview-div {
+        padding: 10px;
+        gap: 10px;
+    }
 
+    body .file-upload-preview-div .card {
+        width: calc(50% - 5px);
+    }
+}
