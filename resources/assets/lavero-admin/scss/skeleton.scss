@@ -221,13 +221,13 @@
             }
         }
 
-        .user-menu {
+        .user-menu:not(.user-menu-trigger) {
             padding: 0 4px !important;
 
             .user-image {
                 width: 36px !important;
                 height: 36px !important;
-                line-height: 36px !important;
+                line-height: 1 !important;
                 margin-right: 0 !important;
                 border: 1.5px solid #e2e8f0 !important;
                 box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;

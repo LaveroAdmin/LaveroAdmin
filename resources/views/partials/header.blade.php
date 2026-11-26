@@ -40,8 +40,8 @@
                     <span class="bg-light inline rounded-circle user-image">
                         <img src="{{ Admin::user()->avatar }}" alt="User Image">
                     </span>
-                    <span class="hidden-xs fw-semibold text-dark small">{{ Admin::user()->name }}</span>
-                    <i class="icon-chevron-down hidden-xs text-muted" style="font-size: 0.7rem;"></i>
+                    <span class="d-none d-md-inline fw-semibold text-dark small">{{ Admin::user()->name }}</span>
+                    <i class="icon-chevron-down d-none d-md-inline text-muted" style="font-size: 0.7rem;"></i>
                 </div>
                 <ul class="dropdown-menu dropdown-menu-end user-menu" aria-labelledby="user-menu-link">
                     <li class="user-header text-center p-3">
