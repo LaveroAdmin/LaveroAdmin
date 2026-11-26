@@ -1059,3 +1059,18 @@ main#main footer .pagination {
     }
 
 }
+
+body.layout-boxed .wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    box-shadow: 0 0 30px rgba(15, 23, 42, 0.08);
+}
+
+.side-menu-closed aside#sidebar .user-panel {
+    justify-content: center;
+    padding: 0.75rem 0 !important;
+
+    .user-panel-info {
+        display: none;
+    }
+}

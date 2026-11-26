@@ -19,19 +19,29 @@
 
 </head>
 
-<body class="{{config('admin.skin')}} {{ $body_classes }}">
+@php
+    $layoutOptions = (array) config('admin.layout', []);
+    $layoutClasses = implode(' ', array_filter($layoutOptions));
+    if (in_array('sidebar-collapse', $layoutOptions, true)) {
+        $layoutClasses .= ' side-menu-closed';
+    }
+@endphp
 
-    @if($alert = config('admin.top_alert'))
-        <div class="alert">
-            {!! $alert !!}
-        </div>
-    @endif
+<body class="{{ config('admin.skin') }} {{ trim($layoutClasses . ' ' . $body_classes) }}">
+
     <div class="wrapper">
 
         @include('admin::partials.header')
         @include('admin::partials.sidebar')
         <div id="sidebar-backdrop" class="sidebar-backdrop"></div>
         <main id="main" class="p-4">
+
+            @if($alert = config('admin.top_alert'))
+                <div class="alert alert-warning alert-dismissible fade show mb-3" role="alert">
+                    {!! $alert !!}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans('admin.close') }}"></button>
+                </div>
+            @endif
 
             <div id="pjax-container">
             <!--start-pjax-container-->
