@@ -499,17 +499,55 @@ body .table.allow-wrap tr td {
 
     .grid-toolbar-left,
     .grid-toolbar-right {
-        > .btn,
-        > .btn-group > .btn {
-            min-height: 34px;
+        .btn {
+            height: 31px !important;
+            min-height: 31px !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            border-radius: 6px !important;
+            line-height: 1 !important;
         }
 
         .btn-group {
             display: inline-flex;
             align-items: center;
+            height: 31px;
+
+            > .btn:not(:last-child) {
+                border-top-right-radius: 0 !important;
+                border-bottom-right-radius: 0 !important;
+            }
+
+            > .btn:not(:first-child) {
+                border-top-left-radius: 0 !important;
+                border-bottom-left-radius: 0 !important;
+            }
+        }
+
+        .input-group {
+            height: 31px;
+            align-items: stretch;
+
+            .form-control {
+                height: 31px !important;
+                min-height: 31px !important;
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+                border-top-left-radius: 6px !important;
+                border-bottom-left-radius: 6px !important;
+                border-top-right-radius: 0 !important;
+                border-bottom-right-radius: 0 !important;
+            }
+
+            > .btn {
+                border-top-left-radius: 0 !important;
+                border-bottom-left-radius: 0 !important;
+                border-top-right-radius: 6px !important;
+                border-bottom-right-radius: 6px !important;
+            }
         }
     }
 }
