@@ -169,6 +169,10 @@ body .file-upload-preview-div .handle:active {
     background-color: rgba(190, 242, 100, 0.12) !important;
 }
 
+.lavero-image-preview-modal {
+    z-index: 2065 !important;
+}
+
 @media (max-width: 575.98px) {
     .file-upload-preview-div {
         padding: 10px;

@@ -222,6 +222,10 @@ class FileUpload {
         }
 
         let id = this.fieldName+'-'+this.index;
+        let safeTitle = String(fileInfo.name || str || 'Preview').replace(/[&<>"']/g, function (m) {
+            return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m];
+        });
+        let safeUrl = String(str || '').replace(/"/g, '&quot;');
         let cardstr = `
             <div>
                 <div class="card">
@@ -235,15 +239,21 @@ class FileUpload {
                         +`
                     </div>
                 </div>
-                <div class="modal fade modal-dialog-centered" id="model-`+id+`" tabindex="-1" aria-hidden="true" style="display:none;">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">`+str+`</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body" style="position:relative;">
-                            <img id="model-img-`+id+`" src="`+str+`" style="width:100%;">
+                <div class="modal fade lavero-image-preview-modal" id="model-`+id+`" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                        <div class="modal-content border-0 shadow-lg overflow-hidden" style="border-radius: 14px;">
+                            <div class="modal-header bg-dark text-white border-0 py-2 px-3" style="background: #0f172a !important; border-bottom: 2px solid #bef264 !important;">
+                                <h6 class="modal-title text-truncate mb-0 me-3" title="`+safeUrl+`" style="max-width: calc(100% - 2.5rem);">`+safeTitle+`</h6>
+                                <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-3 text-center" style="background: #020617;">
+                                <img id="model-img-`+id+`" src="`+safeUrl+`" alt="`+safeTitle+`" style="max-width: 100%; max-height: 75vh; width: auto; height: auto; object-fit: contain; border-radius: 8px;">
+                            </div>
+                            <div class="modal-footer py-2 px-3 bg-white border-top justify-content-between">
+                                <a href="`+safeUrl+`" target="_blank" rel="noopener" class="btn btn-sm btn-outline-secondary">
+                                    <i class="icon-external-link-alt me-1"></i> Open
+                                </a>
+                                <button type="button" class="btn btn-sm btn-primary" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -280,6 +290,11 @@ class FileUpload {
             this.existing_files.appendChild(card);
         }
         this.holder.appendChild(modal);
+        modal.addEventListener('show.bs.modal', function () {
+            if (modal.parentNode !== document.body) {
+                document.body.appendChild(modal);
+            }
+        });
         this.holder.classList.remove("d-none");
         this.hasCard = true;
 
