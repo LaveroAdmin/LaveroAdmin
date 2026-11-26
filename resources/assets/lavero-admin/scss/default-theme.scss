@@ -384,7 +384,7 @@
         $padding-x:  .20rem !default;
         $padding-y:  .12rem !default;
         $font-size: 0.8rem !default;
-        $border-radius: 0.25 !default;
+        $border-radius: 6px !default;
 
         @include button-size($padding-y, $padding-x, $font-size, $border-radius);
     }
