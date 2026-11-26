@@ -351,21 +351,44 @@ aside#sidebar {
     height: calc(100vh - 56px);
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
     z-index: 1020;
     transition: width 0.3s, transform 0.3s;
 
     > nav {
         flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.35);
+            }
+        }
     }
 
     .sidebar-copyright {
         flex-shrink: 0;
-        padding: 0.75rem 1rem;
+        padding: 0.6rem 1rem;
+        background: rgba(2, 6, 23, 0.45);
         border-top: 1px solid rgba(255, 255, 255, 0.08);
         text-align: center;
         font-size: 0.75rem;
+        letter-spacing: 0.01em;
         color: var(--menu-text, #94a3b8);
 
         a {
@@ -378,33 +401,17 @@ aside#sidebar {
             }
         }
     }
-
-    &::-webkit-scrollbar {
-        width: 5px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 3px;
-
-        &:hover {
-            background: rgba(255, 255, 255, 0.35);
-        }
-    }
-
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
 .side-menu-closed aside#sidebar {
     overflow: visible;
 
+    > nav {
+        overflow: visible;
+    }
+
     .sidebar-copyright {
-        padding: 0.65rem 0;
+        padding: 0.6rem 0;
 
         .sidebar-copyright-text {
             display: none;
