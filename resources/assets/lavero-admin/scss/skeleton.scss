@@ -1012,6 +1012,13 @@ main#main footer.fixed-bottom {
 /* main styles  */
 /*-----------------------------------------------------*/
 
+#nprogress {
+    .bar,
+    .spinner {
+        z-index: 2070 !important;
+    }
+}
+
 #main {
 
     // nprogress
