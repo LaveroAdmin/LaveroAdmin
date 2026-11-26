@@ -1096,13 +1096,18 @@ main#main footer .pagination {
 
 .hide-nav {
     header.custom-navbar,
-    #sidebar {
-        display: none;
+    #sidebar,
+    .breadcrumb,
+    .content-header,
+    footer.main-footer {
+        display: none !important;
     }
 
     main#main {
-        margin-left: 0;
-        width: 100%;
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+        width: 100% !important;
+        padding: 1rem !important;
 
         footer.fixed-bottom {
             margin-left: 0;
