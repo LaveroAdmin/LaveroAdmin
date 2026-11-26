@@ -121,6 +121,9 @@ admin.menu = {
     initSearch: function () {
         let search_menu = document.querySelector('.sidebar-form .dropdown-menu');
         let search_field = document.querySelector('.sidebar-form .autocomplete');
+        if (!search_menu || !search_field) {
+            return;
+        }
         let selectedIndex = -1;
 
         let searchMenu = function (event) {
@@ -130,7 +133,12 @@ admin.menu = {
                 event.preventDefault();
                 return false;
             } else if (event.key === 'Enter') {
-                search_menu.querySelector('a.selected').click();
+                let targetLink = search_menu.querySelector('a.selected') || search_menu.querySelector('li.shown a');
+                if (targetLink) {
+                    targetLink.click();
+                }
+                event.preventDefault();
+                return false;
             } else {
                 selectedIndex = -1;
                 let selectedItems = search_menu.querySelector('a.selected');
@@ -139,22 +147,23 @@ admin.menu = {
                 }
             }
 
-            let text = this.value;
+            let text = this.value.trim();
 
             if (text === '') {
                 hide(search_menu);
                 return;
             }
 
-            let regex = new RegExp(text, 'i');
+            let escaped = text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            let regex = new RegExp(escaped, 'i');
             let matched = false;
 
             search_menu.querySelectorAll('li').forEach((li) => {
                 let a = li.querySelector('a');
-                if (!regex.test(a.textContent)) {
+                if (!a || !regex.test(a.textContent)) {
                     hide(li);
                     li.classList.remove('shown');
-                    a.classList.remove('selected');
+                    if (a) a.classList.remove('selected');
                 } else {
                     show(li);
                     li.classList.add('shown');
@@ -164,6 +173,8 @@ admin.menu = {
 
             if (matched) {
                 show(search_menu);
+            } else {
+                hide(search_menu);
             }
         };
 
