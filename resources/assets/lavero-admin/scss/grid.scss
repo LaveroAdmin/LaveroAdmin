@@ -516,12 +516,12 @@ body .table.allow-wrap tr td {
             align-items: center;
             height: 31px;
 
-            > .btn:not(:last-child) {
+            > .btn:has(+ .btn) {
                 border-top-right-radius: 0 !important;
                 border-bottom-right-radius: 0 !important;
             }
 
-            > .btn:not(:first-child) {
+            > .btn + .btn {
                 border-top-left-radius: 0 !important;
                 border-bottom-left-radius: 0 !important;
             }
