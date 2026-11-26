@@ -42,4 +42,10 @@
             </ul>
         </div>
     </nav>
+
+    <div class="sidebar-copyright">
+        <a href="https://bespredel.name" target="_blank" rel="noopener" title="Aleksandr Kireev">
+            &copy; {{ date('Y') }} <span class="sidebar-copyright-text">Aleksandr Kireev</span>
+        </a>
+    </div>
 </aside>
